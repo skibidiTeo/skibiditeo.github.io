@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        a {
+            text-decoration: none;
+            color: blue;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        a:hover {
+            color: red;
+            transform: scale(1.1);
+        }
+    </style>
+    <title>Hiệu ứng</title>
+</head>
+<body>
+    <a href="#" onclick="showMessage()">Bấm vào đây</a>
+
+    <script>
+        function showMessage() {
+            const message = document.createElement('div');
+            message.textContent = 'anh là Nhân đẹp';
+            message.style.position = 'fixed';
+            message.style.top = '50%';
+            message.style.left = '50%';
+            message.style.transform = 'translate(-50%, -50%)';
+            message.style.backgroundColor = '#000';
+            message.style.color = '#fff';
+            message.style.padding = '20px';
+            message.style.borderRadius = '10px';
+            message.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+            message.style.zIndex = '1000';
+            message.style.opacity = '0';
+            message.style.transition = 'opacity 0.5s ease';
+            document.body.appendChild(message);
+            setTimeout(() => {
+                message.style.opacity = '1';
+            }, 10);
+
+            setTimeout(() => {
+                message.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(message);
+                }, 500);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
